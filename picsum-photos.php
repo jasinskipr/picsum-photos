@@ -30,21 +30,6 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-
-function my_cron_schedules($schedules){
-    if(!isset($schedules["1min"])){
-        $schedules["1min"] = array(
-            'interval' => 1*60,
-            'display' => __('Once every 1 minutes'));
-    }
-    if(!isset($schedules["30min"])){
-        $schedules["30min"] = array(
-            'interval' => 30*60,
-            'display' => __('Once every 30 minutes'));
-    }
-    return $schedules;
-}
-add_filter('cron_schedules','my_cron_schedules');
 /**
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org

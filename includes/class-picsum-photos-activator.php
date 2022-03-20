@@ -31,7 +31,7 @@ class Picsum_Photos_Activator {
 	 */
 	public static function activate() {
 		if ( ! wp_next_scheduled( 'wpshout_do_thing' ) ) {
-        	wp_schedule_event( time(), '1min', 'wpshout_do_thing' );
+        	wp_schedule_event( time(), 'daily', 'wpshout_do_thing' );
     	}
 	}
 

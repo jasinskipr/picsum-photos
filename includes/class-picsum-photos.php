@@ -67,7 +67,6 @@ class Picsum_Photos {
 
 		add_action( 'wpshout_do_thing', array($this, 'update_posts'), 10, 2 );
 
-		$this->update_posts();
 	}
 
 	/**
@@ -119,11 +118,11 @@ class Picsum_Photos {
 
 		/**
 		 */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-picsum-photos-images.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-picsum-photos-api.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-picsum-photos-custom-post.php';
 
-		$this->loader = new Picsum_Photos_Loader();		
-		
+		$this->loader = new Picsum_Photos_Loader();
 	}
 
 	/**
@@ -227,9 +226,12 @@ class Picsum_Photos {
 		$api = new Picsum_Photos_API();
 		$request_posts = $api->get_data_json();
 
-		$posts = $this->posts->get_all_posts();
-		print_r($posts);
-		// update_option( PICSUM_PHOTOS_PLUGIN_NAME . '-get-first', $json_data[0]['author'], $autoload = null );
-	}
+		// $posts = $this->posts->get_all_posts();
 
+		foreach ($request_posts as $key => $post) {
+			if(empty($this->posts->is_exist($post))){
+				$this->posts->insert_post($post);
+			}
+		}
+	}
 }
