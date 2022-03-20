@@ -57,6 +57,7 @@ class Picsum_Photos_Custom_Post {
             ),
                 'public'      => true,
                 'has_archive' => true,
+                'show_in_rest'       => true,
                 'supports' => array( 'title',  'author', 'thumbnail' )
         )
     	);

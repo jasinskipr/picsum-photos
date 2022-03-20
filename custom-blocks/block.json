@@ -1,0 +1,15 @@
+{
+    "apiVersion": 2,
+    "name": "gutenberg-examples/example-03-editable-esnext",
+    "title": "Example: Basic with block supports",
+    "icon": "universal-access-alt",
+    "category": "layout",
+    "editorScript": "file:./build/index.js",
+    "supports": {
+        "color": {
+            "text": true,
+            "background": true,
+            "link": true
+        }
+    }
+}

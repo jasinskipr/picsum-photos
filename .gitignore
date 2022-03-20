@@ -1,0 +1,13 @@
+# editor files
+.vscode
+.DS_Store
+
+# vendors and dependencies
+custom-blocks/node_modules
+node_modules
+vendor
+
+# Build
+bundled/*
+
+

@@ -71,6 +71,11 @@ register_activation_hook( __FILE__, 'activate_picsum_photos' );
 register_deactivation_hook( __FILE__, 'deactivate_picsum_photos' );
 
 /**
+ * Add custom blocks gutenberg
+ */
+require plugin_dir_path( __FILE__ ) . 'custom-blocks/index.php';
+
+/**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
